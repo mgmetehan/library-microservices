@@ -1,4 +1,4 @@
-package com.mgmetehan.bookservice;
+package com.mgmetehan.bookservice.repository;
 
 import com.mgmetehan.bookservice.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;

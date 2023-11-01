@@ -1,13 +1,16 @@
 package com.mgmetehan.bookservice;
 
 import com.mgmetehan.bookservice.model.Book;
+import com.mgmetehan.bookservice.repository.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import java.util.Arrays;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class BookServiceApplication implements CommandLineRunner {
 
     private final BookRepository bookRepository;

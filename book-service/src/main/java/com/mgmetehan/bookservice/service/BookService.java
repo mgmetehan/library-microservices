@@ -1,6 +1,6 @@
 package com.mgmetehan.bookservice.service;
 
-import com.mgmetehan.bookservice.BookRepository;
+import com.mgmetehan.bookservice.repository.BookRepository;
 import com.mgmetehan.bookservice.dto.BookDto;
 import com.mgmetehan.bookservice.dto.BookIdDto;
 import com.mgmetehan.bookservice.exception.BookNotFoundException;
