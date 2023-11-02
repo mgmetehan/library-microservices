@@ -4,6 +4,7 @@ import com.mgmetehan.libraryservice.dto.AddBookRequest;
 import com.mgmetehan.libraryservice.dto.LibraryDto;
 import com.mgmetehan.libraryservice.service.LibraryService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,18 +20,20 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1/library")
 @RequiredArgsConstructor
+@Slf4j
 public class LibraryController {
+
     private final LibraryService libraryService;
     private final Environment environment;
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public ResponseEntity<LibraryDto> getLibraryById(@PathVariable String id) {
         return ResponseEntity.ok(libraryService.getAllBooksInLibraryById(id));
     }
 
     @PostMapping
     public ResponseEntity<LibraryDto> createLibrary() {
-        //logger.info("Library created on port number " + environment.getProperty("local.server.port"));
+        //log.info("Library created on port number " + environment.getProperty("local.server.port"));
         return ResponseEntity.ok(libraryService.createLibrary());
     }
 
