@@ -26,7 +26,7 @@ public class LibraryController {
     private final LibraryService libraryService;
     private final Environment environment;
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<LibraryDto> getLibraryById(@PathVariable String id) {
         return ResponseEntity.ok(libraryService.getAllBooksInLibraryById(id));
     }
