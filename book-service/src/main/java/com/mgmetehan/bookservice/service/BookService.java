@@ -1,5 +1,6 @@
 package com.mgmetehan.bookservice.service;
 
+import com.mgmetehan.bookservice.dto.BookCreateDto;
 import com.mgmetehan.bookservice.repository.BookRepository;
 import com.mgmetehan.bookservice.dto.BookDto;
 import com.mgmetehan.bookservice.dto.BookIdDto;
@@ -35,5 +36,9 @@ public class BookService {
         return bookRepository.findById(id)
                 .map(BookDto::convert)
                 .orElseThrow(() -> new BookNotFoundException("Book could not found by id:" + id));
+    }
+
+    public BookDto createBook(BookCreateDto dto) {
+        return BookDto.convert(bookRepository.save(dto.toBook(dto)));
     }
 }

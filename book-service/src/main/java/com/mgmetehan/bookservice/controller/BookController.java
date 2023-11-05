@@ -1,5 +1,6 @@
 package com.mgmetehan.bookservice.controller;
 
+import com.mgmetehan.bookservice.dto.BookCreateDto;
 import com.mgmetehan.bookservice.dto.BookDto;
 import com.mgmetehan.bookservice.dto.BookIdDto;
 import com.mgmetehan.bookservice.service.BookService;
@@ -8,7 +9,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotEmpty;
@@ -34,5 +38,10 @@ public class BookController {
     @GetMapping("/book/{id}")
     public ResponseEntity<BookDto> getBookById(@PathVariable @NotEmpty String id) {
         return ResponseEntity.ok(bookService.findBookDetailsById(id));
+    }
+
+    @PostMapping()
+    public ResponseEntity<BookDto> createBook(@RequestBody @Validated BookCreateDto dto) {
+        return ResponseEntity.ok(bookService.createBook(dto));
     }
 }
